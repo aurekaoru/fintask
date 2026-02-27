@@ -30,7 +30,7 @@ export default async function proxy(request: Request) {
 
   const url = new URL(request.url);
 
-  if (!session && url.pathname.startsWith("/app")) {
+  if (!session && !url.pathname.startsWith("/login")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
