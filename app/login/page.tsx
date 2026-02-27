@@ -12,14 +12,14 @@ export default function LoginPage() {
     const [error, setError] = useState("");
 
     async function handleLogin() {
-        console.log("Login clicked");
-        console.log("email:", email);
-        console.log("password:", password);
+        console.log("login clicked");
 
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
+
+        // console.log("Login result:", { data, error });
 
         if (error) {
             setError(error.message);
@@ -29,12 +29,13 @@ export default function LoginPage() {
         router.push("/dashboard");
     }
 
+
     async function handleSignup() {
-        console.log('Sign up clicked');
+        console.log('sign up clicked');
         const { error } = await supabase.auth.signUp({
             email,
-            password
-        });
+            password,
+        })
         if (error) setError(error.message)
     }
 
