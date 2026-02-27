@@ -5,7 +5,9 @@ export const metadata = {
   description: "A personal finance workflow app",
 }
 
-export default function RootLayout({ children }) {
+import type { ReactNode } from "react";
+
+export default function RootLayout({ children}: {children: ReactNode}) {
   return (
     <html lang="en">
       <head />
